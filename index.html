@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Vallée des Anges — Zaghouan, Tunisia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6F1E6;
+    --olive:#2E3A28;
+    --olive-deep:#1B231A;
+    --terracotta:#C9682B;
+    --sage:#9AA888;
+    --gold:#D9C49A;
+    --line: rgba(46,58,40,0.14);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Sora', sans-serif;
+    background:var(--cream);
+    color:var(--olive-deep);
+    font-weight:300;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.brand{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 5vw;
+    mix-blend-mode:difference;
+    color:#fff;
+    transition:padding .4s ease;
+  }
+  .nav.scrolled{padding:14px 5vw;}
+  .brand{
+    font-size:1.15rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+  }
+  .brand span{font-style:italic; font-weight:400; letter-spacing:0.05em; text-transform:none;}
+  .nav-links{display:flex; gap:2.4vw; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;}
+  .nav-links a{position:relative; padding-bottom:4px;}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
+    background:currentColor; transition:width .35s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+
+  @media (max-width:780px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100vh;
+    min-height:640px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    overflow:hidden;
+    background:linear-gradient(180deg,#F3DFC1 0%, #E9C49C 28%, #D99C72 52%, #B8714B 75%, #6E4A3C 100%);
+  }
+  .hero-sun{
+    position:absolute; left:50%; top:34%;
+    width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle at 40% 35%, #FFF6E2, #F7D9A4 55%, rgba(247,217,164,0));
+    transform:translate(-50%,-50%);
+    filter:blur(1px);
+  }
+  .ridge{position:absolute; left:0; width:100%; bottom:0;}
+  .ridge svg{display:block; width:100%; height:auto;}
+  .hero-content{
+    position:relative; z-index:5;
+    padding:0 5vw 8vw;
+    color:#FBF4E7;
+  }
+  .hero-eyebrow{
+    font-size:0.78rem; letter-spacing:0.32em; text-transform:uppercase;
+    opacity:0.85; margin-bottom:22px; font-weight:400;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem, 8vw, 7.2rem);
+    line-height:1.02;
+    font-weight:500;
+    max-width:14ch;
+  }
+  .hero h1 em{font-style:italic; font-weight:400; color:var(--cream);}
+  .hero-sub{
+    margin-top:28px; max-width:38ch;
+    font-size:1.02rem; font-weight:300; opacity:0.92;
+  }
+  .hero-scroll{
+    position:absolute; right:5vw; bottom:7vw; z-index:5;
+    color:#FBF4E7; font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase;
+    display:flex; align-items:center; gap:14px;
+  }
+  .hero-scroll .line{width:1px; height:60px; background:rgba(251,244,231,0.5); position:relative; overflow:hidden;}
+  .hero-scroll .line::after{
+    content:''; position:absolute; top:0; left:0; width:100%; height:30%;
+    background:#FBF4E7; animation:scrollLine 2.6s ease-in-out infinite;
+  }
+  @keyframes scrollLine{
+    0%{transform:translateY(-100%);}
+    60%{transform:translateY(220%);}
+    100%{transform:translateY(220%);}
+  }
+
+  @media (max-width:780px){
+    .hero-scroll{display:none;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative; padding:min(14vw,140px) 5vw;}
+  .section-inner{max-width:1280px; margin:0 auto;}
+
+  .eyebrow{
+    font-size:0.74rem; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--terracotta); font-weight:500; margin-bottom:18px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before{
+    content:''; display:block; width:34px; height:1px; background:var(--terracotta);
+  }
+
+  /* ---------- WELCOME / INTRO ---------- */
+  .intro{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:6vw; align-items:start;
+  }
+  .intro h2{
+    font-size:clamp(2.2rem, 4.6vw, 3.6rem); line-height:1.15; font-weight:500;
+    max-width:16ch;
+  }
+  .intro h2 em{font-style:italic; color:var(--terracotta); font-weight:400;}
+  .intro-text p{margin-bottom:1.2em; color:#3D4936; font-weight:300; font-size:1.02rem;}
+  .intro-text p:last-child{margin-bottom:0;}
+  .stat-row{
+    display:flex; gap:8vw; margin-top:3.5rem; flex-wrap:wrap;
+  }
+  .stat{border-top:1px solid var(--line); padding-top:18px;}
+  .stat .num{font-family:'Fraunces', serif; font-size:2.4rem; font-weight:500; color:var(--olive);}
+  .stat .label{font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:#7A8270; margin-top:6px;}
+
+  @media (max-width:880px){
+    .intro{grid-template-columns:1fr; gap:3rem;}
+  }
+
+  /* ---------- DIVIDER ridge between sections ---------- */
+  .divider{height:90px; overflow:hidden; line-height:0;}
+  .divider svg{width:100%; height:100%; display:block;}
+
+  /* ---------- EXPERIENCE GRID (restaurant/cafe/pool/events) ---------- */
+  .experience{background:var(--olive-deep); color:var(--cream);}
+  .experience .eyebrow{color:var(--gold);}
+  .experience .eyebrow::before{background:var(--gold);}
+  .exp-head{display:flex; justify-content:space-between; align-items:flex-end; gap:2rem; flex-wrap:wrap; margin-bottom:5rem;}
+  .exp-head h2{font-size:clamp(2.4rem,5vw,4.2rem); font-weight:500; max-width:18ch;}
+  .exp-head h2 em{font-style:italic; color:var(--gold); font-weight:400;}
+  .exp-head p{max-width:34ch; font-size:0.98rem; opacity:0.78; font-weight:300;}
+
+  .exp-list{display:flex; flex-direction:column;}
+  .exp-row{
+    display:grid; grid-template-columns:0.9fr 2.1fr 1.2fr;
+    gap:3vw; align-items:center;
+    padding:3.4rem 0;
+    border-top:1px solid rgba(246,241,230,0.14);
+    transition:background .4s ease;
+  }
+  .exp-row:last-child{border-bottom:1px solid rgba(246,241,230,0.14);}
+  .exp-tag{
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.15rem; color:var(--sage);
+  }
+  .exp-body h3{font-size:clamp(1.6rem,3vw,2.5rem); font-weight:500; margin-bottom:0.6rem;}
+  .exp-body p{font-size:0.96rem; opacity:0.72; font-weight:300; max-width:46ch;}
+  .exp-visual{
+    height:100%; min-height:160px; border-radius:2px; overflow:hidden;
+    position:relative; background:linear-gradient(140deg, var(--sage), var(--olive));
+  }
+  .exp-visual svg{position:absolute; inset:0; width:100%; height:100%;}
+
+  @media (max-width:920px){
+    .exp-row{grid-template-columns:1fr; gap:1.2rem; padding:2.6rem 0;}
+    .exp-visual{order:-1; min-height:200px;}
+  }
+
+  /* ---------- PANORAMA BREAK ---------- */
+  .panorama{
+    position:relative; height:78vh; min-height:480px; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(180deg, #DCE7E2 0%, #BFD4CC 30%, #9CB6A8 55%, #6F8C77 100%);
+  }
+  .panorama .ridge svg{position:absolute; bottom:0;}
+  .panorama-text{
+    position:relative; z-index:5; text-align:center; color:var(--olive-deep);
+    max-width:18ch;
+  }
+  .panorama-text .eyebrow{justify-content:center; color:var(--olive);}
+  .panorama-text .eyebrow::before{background:var(--olive);}
+  .panorama-text h2{
+    font-size:clamp(2.4rem,7vw,5.6rem); font-weight:500; line-height:1.05;
+  }
+  .panorama-text h2 em{font-style:italic; color:var(--terracotta); font-weight:400;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid; grid-template-columns:repeat(6,1fr); grid-template-rows:repeat(2,220px); gap:14px;}
+  .gallery .g-item{border-radius:2px; overflow:hidden; position:relative;}
+  .gallery .g-item svg{width:100%; height:100%; display:block;}
+  .gallery .g1{grid-column:1/4; grid-row:1/3;}
+  .gallery .g2{grid-column:4/7; grid-row:1/2;}
+  .gallery .g3{grid-column:4/6; grid-row:2/3;}
+  .gallery .g4{grid-column:6/7; grid-row:2/3;}
+  @media (max-width:880px){
+    .gallery{grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,180px);}
+    .gallery .g1{grid-column:1/3; grid-row:1/2;}
+    .gallery .g2{grid-column:1/2; grid-row:2/3;}
+    .gallery .g3{grid-column:2/3; grid-row:2/3;}
+    .gallery .g4{grid-column:1/3; grid-row:3/4;}
+  }
+
+  /* ---------- EVENTS CTA ---------- */
+  .events{
+    background:linear-gradient(135deg, var(--terracotta) 0%, #B8542A 100%);
+    color:var(--cream);
+    text-align:left;
+  }
+  .events .section-inner{display:grid; grid-template-columns:1.3fr 1fr; gap:5vw; align-items:center;}
+  .events h2{font-size:clamp(2.2rem,4.8vw,3.8rem); font-weight:500; max-width:16ch; line-height:1.1;}
+  .events h2 em{font-style:italic; font-weight:400;}
+  .events p{font-size:1rem; opacity:0.92; font-weight:300; max-width:42ch; margin-top:1.4rem;}
+  .events .eyebrow{color:var(--cream);}
+  .events .eyebrow::before{background:var(--cream);}
+  .event-types{display:flex; flex-direction:column; gap:0; border-top:1px solid rgba(246,241,230,0.35);}
+  .event-types div{
+    padding:1.3rem 0; border-bottom:1px solid rgba(246,241,230,0.35);
+    display:flex; justify-content:space-between; font-size:0.95rem; letter-spacing:0.04em;
+  }
+  .event-types span:last-child{font-family:'Fraunces',serif; font-style:italic; opacity:0.85;}
+
+  @media (max-width:880px){
+    .events .section-inner{grid-template-columns:1fr; gap:2.5rem;}
+  }
+
+  /* ---------- VISIT / CONTACT ---------- */
+  .visit{background:var(--cream);}
+  .visit .section-inner{
+    display:grid; grid-template-columns:1fr 1fr; gap:6vw;
+  }
+  .visit h2{font-size:clamp(2.2rem,4.8vw,3.8rem); font-weight:500; max-width:14ch; line-height:1.1; margin-bottom:1.6rem;}
+  .visit h2 em{font-style:italic; color:var(--terracotta); font-weight:400;}
+  .visit-details{display:flex; flex-direction:column; gap:1.6rem; font-size:0.98rem;}
+  .visit-details .label{
+    font-size:0.74rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--terracotta);
+    margin-bottom:6px; font-weight:500;
+  }
+  .visit-details .val{color:var(--olive-deep); font-weight:300;}
+  .cta-btn{
+    display:inline-flex; align-items:center; gap:14px; margin-top:2.4rem;
+    padding:18px 34px; border:1px solid var(--olive-deep); border-radius:999px;
+    font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase;
+    transition:background .35s ease, color .35s ease;
+    width:fit-content;
+  }
+  .cta-btn:hover{background:var(--olive-deep); color:var(--cream);}
+  .map-box{
+    border-radius:2px; overflow:hidden; min-height:340px; position:relative;
+    background:linear-gradient(150deg,#DCE7E2,#9AA888);
+  }
+  .map-box svg{position:absolute; inset:0; width:100%; height:100%;}
+  @media (max-width:880px){
+    .visit .section-inner{grid-template-columns:1fr; gap:3rem;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--olive-deep); color:var(--cream);
+    padding:4rem 5vw 2.4rem;
+  }
+  .foot-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:2.5rem; padding-bottom:3rem; border-bottom:1px solid rgba(246,241,230,0.14);
+  }
+  .foot-brand .brand{font-size:1.4rem; letter-spacing:0.18em; margin-bottom:1rem;}
+  .foot-brand p{max-width:32ch; font-size:0.92rem; opacity:0.7; font-weight:300;}
+  .foot-cols{display:flex; gap:5vw; flex-wrap:wrap;}
+  .foot-col .label{
+    font-size:0.74rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:1rem; font-weight:500;
+  }
+  .foot-col a, .foot-col p{display:block; font-size:0.92rem; opacity:0.75; font-weight:300; margin-bottom:0.5rem;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+    padding-top:2rem; font-size:0.78rem; opacity:0.5; letter-spacing:0.04em;
+  }
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(36px); transition:opacity 1s ease, transform 1s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- MENU SECTION ---------- */
+  .menu-head h2{
+    font-size:clamp(2.2rem, 4.6vw, 3.6rem); line-height:1.15; font-weight:500;
+    max-width:18ch; margin-bottom:1.2rem;
+  }
+  .menu-head h2 em{font-style:italic; color:var(--terracotta); font-weight:400;}
+  .menu-head p{max-width:48ch; color:#3D4936; font-size:1.02rem; font-weight:300;}
+
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2.6vw;
+    margin-top:4rem;
+  }
+  .menu-card{display:flex; flex-direction:column;}
+  .menu-img{
+    border-radius:2px; overflow:hidden; aspect-ratio:4/3; position:relative;
+    margin-bottom:1.4rem;
+    cursor:pointer;
+  }
+  .menu-img svg{
+    width:100%; height:100%; display:block;
+    transition:transform .7s cubic-bezier(.22,.61,.36,1), filter .5s ease;
+    transform-origin:center;
+  }
+  .menu-img::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(27,35,26,0) 55%, rgba(27,35,26,0.28) 100%);
+    opacity:0; transition:opacity .5s ease;
+    pointer-events:none;
+  }
+  .menu-card:hover .menu-img svg{
+    transform:scale(1.12) translateY(-6px) rotate(-1deg);
+    filter:saturate(1.15) brightness(1.04);
+  }
+  .menu-card:hover .menu-img::after{opacity:1;}
+  .menu-card:hover .menu-price{
+    color:var(--terracotta);
+    transform:translateX(2px);
+  }
+  .menu-price{transition:transform .35s ease, color .35s ease;}
+  .menu-card .menu-info h3{transition:color .35s ease;}
+  .menu-card:hover .menu-info h3{color:var(--terracotta);}
+  .drinks .menu-card:hover .menu-info h3{color:var(--gold);}
+  .drinks .menu-card:hover .menu-price{color:var(--cream);}
+
+  /* staggered slide-in for menu cards */
+  .menu-card.reveal{
+    transform:translateY(48px) scale(0.97);
+    transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1);
+  }
+  .menu-card.reveal.in{transform:translateY(0) scale(1);}
+  .menu-grid .menu-card:nth-child(1){transition-delay:0s;}
+  .menu-grid .menu-card:nth-child(2){transition-delay:.08s;}
+  .menu-grid .menu-card:nth-child(3){transition-delay:.16s;}
+  .menu-grid .menu-card:nth-child(4){transition-delay:.24s;}
+  .menu-grid .menu-card:nth-child(5){transition-delay:.32s;}
+  .menu-grid .menu-card:nth-child(6){transition-delay:.4s;}
+
+  /* ---------- MENU SLIDER ---------- */
+  .menu-slider{
+    position:relative;
+    margin-top:3.5rem;
+    border-radius:2px;
+    overflow:hidden;
+    aspect-ratio:16/7;
+    background:var(--olive-deep);
+  }
+  .menu-slider .slide{
+    position:absolute; inset:0;
+    opacity:0;
+    transform:scale(1.04);
+    transition:opacity 1.1s cubic-bezier(.22,.61,.36,1), transform 1.4s cubic-bezier(.22,.61,.36,1);
+    pointer-events:none;
+  }
+  .menu-slider .slide.active{
+    opacity:1;
+    transform:scale(1);
+    pointer-events:auto;
+  }
+  .menu-slider .slide svg{width:100%; height:100%; display:block;}
+  .menu-slider .slide-caption{
+    position:absolute; left:0; right:0; bottom:0;
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:1.6rem 2rem;
+    background:linear-gradient(180deg, rgba(27,35,26,0) 0%, rgba(27,35,26,0.55) 100%);
+    color:var(--cream);
+  }
+  .menu-slider .slide-caption h3{font-size:1.4rem; font-weight:500;}
+  .menu-slider .slide-caption .menu-price{color:var(--gold);}
+  .slider-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:48px; height:48px; border-radius:50%;
+    border:1px solid rgba(246,241,230,0.5);
+    background:rgba(27,35,26,0.35);
+    color:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-family:'Fraunces', serif; font-size:1.3rem;
+    transition:background .35s ease, border-color .35s ease, transform .35s ease;
+    z-index:6;
+  }
+  .slider-arrow:hover{
+    background:var(--terracotta);
+    border-color:var(--terracotta);
+    transform:translateY(-50%) scale(1.08);
+  }
+  .slider-arrow.prev{left:1.4rem;}
+  .slider-arrow.next{right:1.4rem;}
+  .slider-dots{
+    position:absolute; top:1.6rem; right:2rem; z-index:6;
+    display:flex; gap:8px;
+  }
+  .slider-dots button{
+    width:8px; height:8px; border-radius:50%; border:1px solid var(--cream);
+    background:transparent; cursor:pointer; padding:0;
+    transition:background .35s ease, transform .35s ease;
+  }
+  .slider-dots button.active{background:var(--cream); transform:scale(1.2);}
+
+  @media (max-width:600px){
+    .menu-slider{aspect-ratio:4/5;}
+    .slider-arrow{width:38px; height:38px; font-size:1.05rem;}
+    .slider-dots{top:1rem; right:1rem;}
+  }
+  .menu-info{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-top:1px solid var(--line); padding-top:1rem; gap:1rem;
+  }
+  .menu-info h3{
+    font-size:1.3rem; font-weight:500; color:var(--olive); flex:1;
+  }
+  .menu-price{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:1.15rem; color:var(--terracotta); white-space:nowrap;
+  }
+
+  @media (max-width:920px){
+    .menu-grid{grid-template-columns:repeat(2,1fr); gap:6vw;}
+  }
+  @media (max-width:600px){
+    .menu-grid{grid-template-columns:1fr; gap:10vw;}
+  }
+
+  /* ---------- DRINKS SUBSECTION (dark, matches experience section) ---------- */
+  .drinks{background:var(--olive-deep); color:var(--cream); margin:0 -5vw; padding:min(14vw,140px) 5vw;}
+  .drinks .eyebrow{color:var(--gold);}
+  .drinks .eyebrow::before{background:var(--gold);}
+  .drinks .menu-head h2 em{color:var(--gold);}
+  .drinks .menu-head p{color:rgba(246,241,230,0.7);}
+  .drinks .menu-info{border-top:1px solid rgba(246,241,230,0.14);}
+  .drinks .menu-info h3{color:var(--cream);}
+  .drinks .menu-price{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="brand">La Vallée <span>des Anges</span></div>
+  <div class="nav-links">
+    <a href="#monde">The Valley</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#panorama">Views</a>
+    <a href="#evenements">Events</a>
+    <a href="#menu">Menu</a>
+    <a href="#hostel">Hostel</a>
+    <a href="#visite">Visit</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-sun"></div>
+  <div class="ridge" style="bottom:-2px;">
+    <svg viewBox="0 0 1440 360" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,260 L120,200 L260,250 L420,140 L560,210 L720,90 L860,200 L1020,150 L1180,230 L1320,170 L1440,220 L1440,360 L0,360 Z" fill="#5A4438" opacity="0.55"/>
+      <path d="M0,310 L160,250 L340,300 L520,210 L680,280 L860,180 L1020,260 L1200,200 L1440,280 L1440,360 L0,360 Z" fill="#3E3A33" opacity="0.75"/>
+      <path d="M0,360 L0,330 L200,300 L420,340 L640,300 L880,345 L1100,310 L1440,345 L1440,360 Z" fill="#2A2722"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Zaghouan, Tunisia</div>
+    <h1>A valley held<br><em>between mountain</em><br>and sky.</h1>
+    <p class="hero-sub">La Vallée des Anges is a restaurant, café and garden retreat set against the cliffs of Jebel Zaghouan — where every table looks out over olive groves and open horizon.</p>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="line"></div></div>
+</header>
+
+<!-- INTRO -->
+<section id="monde">
+  <div class="section-inner intro">
+    <div class="reveal">
+      <div class="eyebrow">The Valley</div>
+      <h2>A table set <em>at the foot of the mountain</em></h2>
+    </div>
+    <div class="intro-text reveal">
+      <p>Forty minutes from Tunis, the road climbs into the foothills of Jebel Zaghouan and opens onto a quiet plateau of pine, olive and stone. La Vallée des Anges sits here, facing the mountain — a place built for long lunches, slow afternoons, and evenings that don't want to end.</p>
+      <p>Stone terraces, shaded pergolas and open lawns step down the hillside toward the valley floor, framing the same view that has drawn travellers to Zaghouan for centuries: limestone peaks catching the light, and silence broken only by wind and birdsong.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">1295m</div><div class="label">Jebel Zaghouan summit</div></div>
+        <div class="stat"><div class="num">3</div><div class="label">Terraces &amp; gardens</div></div>
+        <div class="stat"><div class="num">7/7</div><div class="label">Open daily</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,40 L240,10 L480,55 L760,5 L1000,45 L1240,15 L1440,40 L1440,90 L0,90 Z" fill="#1B231A"/>
+  </svg>
+</div>
+
+<!-- EXPERIENCES -->
+<section id="experiences" class="experience">
+  <div class="section-inner">
+    <div class="exp-head reveal">
+      <div>
+        <div class="eyebrow">Experiences</div>
+        <h2>Four ways to spend <em>a day in the valley</em></h2>
+      </div>
+      <p>From the first coffee on the terrace to a late dinner under string lights — the venue moves with the day, each space designed for a different rhythm.</p>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-row reveal">
+        <div class="exp-tag">Morning</div>
+        <div class="exp-body">
+          <h3>The Café</h3>
+          <p>An open-air café terrace for slow mornings — Tunisian coffee, fresh orange juice, pastries and breakfast plates, taken in the cool mountain air with the valley still in shadow.</p>
+        </div>
+        <div class="exp-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#9AA888"/>
+            <path d="M0,300 L0,180 Q100,140 200,170 T400,150 L400,300 Z" fill="#7E9070"/>
+            <circle cx="320" cy="60" r="34" fill="#F3DFC1" opacity="0.85"/>
+            <g stroke="#F6F1E6" stroke-width="2" opacity="0.5">
+              <line x1="40" y1="220" x2="40" y2="120"/>
+              <line x1="90" y1="230" x2="90" y2="110"/>
+              <line x1="140" y1="220" x2="140" y2="130"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-tag">Midday</div>
+        <div class="exp-body">
+          <h3>The Pool &amp; Gardens</h3>
+          <p>A panoramic swimming pool set into the hillside, surrounded by sun loungers, palms and lawn. Built for long afternoons — swim, then rest in the shade with the mountain in full view.</p>
+        </div>
+        <div class="exp-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#2E3A28"/>
+            <rect x="0" y="180" width="400" height="120" fill="#6FA9A6"/>
+            <rect x="0" y="180" width="400" height="14" fill="#9CC9C5"/>
+            <g fill="none" stroke="#FBF4E7" stroke-width="1.5" opacity="0.5">
+              <path d="M20,230 Q60,220 100,230 T180,230"/>
+              <path d="M220,250 Q260,240 300,250 T380,250"/>
+            </g>
+            <circle cx="80" cy="60" r="40" fill="#F3DFC1" opacity="0.9"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-tag">Evening</div>
+        <div class="exp-body">
+          <h3>The Restaurant</h3>
+          <p>Tunisian and Mediterranean cuisine served on a stone terrace facing the sunset — grilled meats and fresh seafood, seasonal produce from the valley, and a wine list chosen to match the view.</p>
+        </div>
+        <div class="exp-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#B8542A"/>
+            <path d="M0,300 L0,170 L120,200 L260,150 L400,190 L400,300 Z" fill="#3E2A20"/>
+            <circle cx="300" cy="70" r="46" fill="#F7D9A4"/>
+            <g fill="#1B231A" opacity="0.7">
+              <rect x="60" y="210" width="50" height="6" rx="3"/>
+              <rect x="180" y="225" width="50" height="6" rx="3"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="exp-row reveal">
+        <div class="exp-tag">Night</div>
+        <div class="exp-body">
+          <h3>Events &amp; Celebrations</h3>
+          <p>Weddings, engagements, corporate evenings and private parties hosted across the gardens and main hall — full event planning, catering and decor, built around the same mountain backdrop.</p>
+        </div>
+        <div class="exp-visual">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#1B231A"/>
+            <path d="M0,300 L0,200 L150,230 L300,170 L400,210 L400,300 Z" fill="#2E3A28"/>
+            <g fill="#D9C49A">
+              <circle cx="60" cy="80" r="2.5"/>
+              <circle cx="140" cy="50" r="2"/>
+              <circle cx="220" cy="90" r="2.5"/>
+              <circle cx="300" cy="40" r="2"/>
+              <circle cx="350" cy="100" r="2.5"/>
+              <circle cx="100" cy="120" r="1.8"/>
+              <circle cx="260" cy="120" r="1.8"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PANORAMA -->
+<section id="panorama" class="panorama">
+  <div class="ridge">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,280 L150,180 L320,260 L500,120 L680,220 L860,80 L1040,200 L1220,140 L1440,230 L1440,400 L0,400 Z" fill="#8FAE9C" opacity="0.7"/>
+      <path d="M0,340 L200,260 L420,320 L620,200 L820,300 L1020,180 L1240,270 L1440,300 L1440,400 L0,400 Z" fill="#5F7C68"/>
+    </svg>
+  </div>
+  <div class="panorama-text reveal">
+    <div class="eyebrow">Panorama</div>
+    <h2>Every seat <em>faces the mountain</em></h2>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="section-inner">
+    <div class="eyebrow reveal">Gallery</div>
+    <h2 class="reveal" style="font-size:clamp(2.2rem,4.8vw,3.6rem); font-weight:500; max-width:16ch; margin-bottom:3rem;">Light, stone <em style="font-style:italic;color:var(--terracotta);">and open air</em></h2>
+    <div class="gallery reveal">
+      <div class="g-item g1">
+        <svg viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="440" fill="#E9C49C"/>
+          <path d="M0,440 L0,260 L120,300 L260,200 L400,260 L400,440 Z" fill="#B8714B"/>
+          <path d="M0,440 L0,340 L150,380 L300,320 L400,360 L400,440 Z" fill="#6E4A3C"/>
+          <circle cx="320" cy="90" r="46" fill="#FBF4E7" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="g-item g2">
+        <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="200" fill="#9AA888"/>
+          <rect y="120" width="400" height="80" fill="#6FA9A6"/>
+          <g fill="none" stroke="#FBF4E7" stroke-width="1.5" opacity="0.5">
+            <path d="M20,150 Q60,140 100,150 T180,150"/>
+            <path d="M220,160 Q260,150 300,160 T380,160"/>
+          </g>
+        </svg>
+      </div>
+      <div class="g-item g3">
+        <svg viewBox="0 0 260 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="260" height="200" fill="#2E3A28"/>
+          <g stroke="#D9C49A" stroke-width="2" opacity="0.6">
+            <line x1="40" y1="180" x2="40" y2="60"/>
+            <line x1="90" y1="190" x2="90" y2="40"/>
+            <line x1="140" y1="180" x2="140" y2="70"/>
+            <line x1="190" y1="190" x2="190" y2="50"/>
+          </g>
+          <circle cx="220" cy="40" r="22" fill="#F7D9A4"/>
+        </svg>
+      </div>
+      <div class="g-item g4">
+        <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="200" fill="#C9682B"/>
+          <path d="M0,200 L0,120 L70,140 L140,90 L200,120 L200,200 Z" fill="#7A3F22"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="evenements" class="events">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">Private Events</div>
+      <h2>Celebrations <em>with the valley as backdrop</em></h2>
+      <p>From intimate engagements on the terrace to full-scale weddings across the gardens, our events team handles seating, catering, lighting and decor — so the only thing you need to do is arrive.</p>
+    </div>
+    <div class="event-types reveal">
+      <div><span>Weddings &amp; Engagements</span><span>Garden &amp; Hall</span></div>
+      <div><span>Corporate Evenings</span><span>Terrace &amp; Lounge</span></div>
+      <div><span>Birthdays &amp; Family Gatherings</span><span>Poolside</span></div>
+      <div><span>Private Dinners</span><span>Mountain Terrace</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="section-inner">
+    <div class="menu-head reveal">
+      <div class="eyebrow">Menu</div>
+      <h2>From the wood oven <em>and the grill</em></h2>
+      <p>Hand-stretched pizzas baked to order, grilled tacos and escalope sandwiches, and a house burger — made fresh for the terrace and the café.</p>
+    </div>
+
+    <div class="menu-slider reveal" id="menuSlider">
+      <div class="slide active">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#E9C49C"/>
+          <circle cx="400" cy="180" r="150" fill="#C9682B"/>
+          <circle cx="400" cy="180" r="122" fill="#E8B062"/>
+          <circle cx="330" cy="130" r="16" fill="#B8542A"/>
+          <circle cx="460" cy="155" r="13" fill="#B8542A"/>
+          <circle cx="370" cy="220" r="14" fill="#B8542A"/>
+          <circle cx="470" cy="230" r="11" fill="#9AA888"/>
+          <circle cx="310" cy="225" r="10" fill="#9AA888"/>
+          <circle cx="440" cy="190" r="9" fill="#7E9070"/>
+        </svg>
+        <div class="slide-caption"><h3>Pizza Margherita</h3><span class="menu-price">18 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#DCE7E2"/>
+          <circle cx="400" cy="180" r="150" fill="#C9682B"/>
+          <circle cx="400" cy="180" r="122" fill="#E8B062"/>
+          <g fill="#8C9A7A">
+            <ellipse cx="350" cy="140" rx="28" ry="13"/>
+            <ellipse cx="460" cy="180" rx="25" ry="11"/>
+            <ellipse cx="360" cy="230" rx="30" ry="13"/>
+            <ellipse cx="480" cy="245" rx="22" ry="10"/>
+          </g>
+          <g fill="#6E4A3C" opacity="0.6">
+            <circle cx="320" cy="195" r="6"/>
+            <circle cx="430" cy="145" r="6"/>
+            <circle cx="500" cy="215" r="6"/>
+          </g>
+        </svg>
+        <div class="slide-caption"><h3>Pizza Thon</h3><span class="menu-price">22 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#F3DFC1"/>
+          <circle cx="400" cy="180" r="150" fill="#C9682B"/>
+          <circle cx="400" cy="180" r="122" fill="#F7D9A4"/>
+          <path d="M400,58 L400,302" stroke="#E8B062" stroke-width="4" opacity="0.6"/>
+          <path d="M278,180 L522,180" stroke="#E8B062" stroke-width="4" opacity="0.6"/>
+          <circle cx="330" cy="130" r="18" fill="#FBF4E7" opacity="0.8"/>
+          <circle cx="470" cy="138" r="15" fill="#D9C49A"/>
+          <circle cx="460" cy="232" r="16" fill="#9AA888"/>
+          <circle cx="325" cy="232" r="14" fill="#E8B062"/>
+        </svg>
+        <div class="slide-caption"><h3>Pizza 4 Fromages</h3><span class="menu-price">25 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#9AA888"/>
+          <path d="M140,250 Q400,310 660,250 L660,278 Q400,330 140,278 Z" fill="#E8B062"/>
+          <path d="M180,242 Q400,288 620,242 L605,212 Q400,255 195,212 Z" fill="#7A3F22"/>
+          <path d="M195,218 Q400,260 605,218 L595,198 Q400,238 205,198 Z" fill="#9CC9C5" opacity="0.8"/>
+          <path d="M205,198 Q400,238 595,198 L580,180 Q400,218 220,180 Z" fill="#C9682B" opacity="0.85"/>
+        </svg>
+        <div class="slide-caption"><h3>Tacos Escalope</h3><span class="menu-price">15 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#D9C49A"/>
+          <path d="M160,190 Q400,140 640,190 L640,225 Q400,265 160,225 Z" fill="#E8B062"/>
+          <rect x="190" y="183" width="420" height="18" fill="#7E9070" rx="5"/>
+          <rect x="190" y="203" width="420" height="16" fill="#9CC9C5" rx="5" opacity="0.8"/>
+          <rect x="190" y="220" width="420" height="18" fill="#7A3F22" rx="5"/>
+          <path d="M160,232 Q400,278 640,232 L640,258 Q400,300 160,258 Z" fill="#F7D9A4"/>
+        </svg>
+        <div class="slide-caption"><h3>Sandwich Escalope</h3><span class="menu-price">10 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#B8714B"/>
+          <ellipse cx="400" cy="128" rx="120" ry="40" fill="#E8B062"/>
+          <rect x="270" y="152" width="260" height="22" fill="#9AA888" rx="7"/>
+          <rect x="262" y="176" width="276" height="26" fill="#7A3F22" rx="7"/>
+          <rect x="270" y="204" width="260" height="16" fill="#C9682B" rx="7" opacity="0.85"/>
+          <ellipse cx="400" cy="246" rx="125" ry="38" fill="#E8B062"/>
+        </svg>
+        <div class="slide-caption"><h3>Burger Maison</h3><span class="menu-price">16 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#2E3A28"/>
+          <rect x="340" y="60" width="120" height="220" rx="18" fill="#C9682B"/>
+          <rect x="358" y="92" width="84" height="40" rx="5" fill="#FBF4E7" opacity="0.85"/>
+          <circle cx="600" cy="100" r="60" fill="#9AA888" opacity="0.5"/>
+        </svg>
+        <div class="slide-caption"><h3>Coca-Cola</h3><span class="menu-price">3 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#2E3A28"/>
+          <path d="M280,140 L520,140 L500,270 Q500,290 400,290 Q300,290 300,270 Z" fill="#E8B062"/>
+          <ellipse cx="400" cy="140" rx="100" ry="14" fill="#F7D9A4"/>
+          <g fill="#FBF4E7" opacity="0.4">
+            <circle cx="370" cy="200" r="22"/>
+            <circle cx="430" cy="245" r="16"/>
+          </g>
+        </svg>
+        <div class="slide-caption"><h3>Orange Juice</h3><span class="menu-price">5 DT</span></div>
+      </div>
+      <div class="slide">
+        <svg viewBox="0 0 800 350" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="800" height="350" fill="#2E3A28"/>
+          <path d="M300,150 L500,150 L490,260 Q490,280 400,280 Q310,280 310,260 Z" fill="#3E2A20"/>
+          <ellipse cx="400" cy="150" rx="100" ry="16" fill="#6E4A3C"/>
+          <path d="M500,175 Q560,175 560,212 Q560,250 500,250" fill="none" stroke="#D9C49A" stroke-width="12"/>
+        </svg>
+        <div class="slide-caption"><h3>Espresso Coffee</h3><span class="menu-price">2.5 DT</span></div>
+      </div>
+
+      <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous item">‹</button>
+      <button class="slider-arrow next" id="sliderNext" aria-label="Next item">›</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#E9C49C"/>
+            <circle cx="200" cy="160" r="120" fill="#C9682B"/>
+            <circle cx="200" cy="160" r="98" fill="#E8B062"/>
+            <circle cx="160" cy="120" r="12" fill="#B8542A"/>
+            <circle cx="240" cy="140" r="10" fill="#B8542A"/>
+            <circle cx="190" cy="190" r="11" fill="#B8542A"/>
+            <circle cx="250" cy="200" r="9" fill="#9AA888"/>
+            <circle cx="150" cy="190" r="8" fill="#9AA888"/>
+            <circle cx="230" cy="170" r="7" fill="#7E9070"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Pizza Margherita</h3>
+          <span class="menu-price">18 DT</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#DCE7E2"/>
+            <circle cx="200" cy="160" r="120" fill="#C9682B"/>
+            <circle cx="200" cy="160" r="98" fill="#E8B062"/>
+            <g fill="#8C9A7A">
+              <ellipse cx="170" cy="130" rx="22" ry="10"/>
+              <ellipse cx="235" cy="160" rx="20" ry="9"/>
+              <ellipse cx="180" cy="195" rx="24" ry="10"/>
+              <ellipse cx="245" cy="205" rx="18" ry="8"/>
+            </g>
+            <g fill="#6E4A3C" opacity="0.6">
+              <circle cx="150" cy="170" r="5"/>
+              <circle cx="220" cy="130" r="5"/>
+              <circle cx="260" cy="185" r="5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Pizza Thon</h3>
+          <span class="menu-price">22 DT</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#F3DFC1"/>
+            <circle cx="200" cy="160" r="120" fill="#C9682B"/>
+            <circle cx="200" cy="160" r="98" fill="#F7D9A4"/>
+            <path d="M200,62 L200,258" stroke="#E8B062" stroke-width="3" opacity="0.6"/>
+            <path d="M102,160 L298,160" stroke="#E8B062" stroke-width="3" opacity="0.6"/>
+            <circle cx="160" cy="120" r="14" fill="#FBF4E7" opacity="0.8"/>
+            <circle cx="245" cy="125" r="12" fill="#D9C49A"/>
+            <circle cx="240" cy="200" r="13" fill="#9AA888"/>
+            <circle cx="155" cy="200" r="11" fill="#E8B062"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Pizza 4 Fromages</h3>
+          <span class="menu-price">25 DT</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#9AA888"/>
+            <path d="M70,210 Q200,260 330,210 L330,230 Q200,275 70,230 Z" fill="#E8B062"/>
+            <path d="M90,205 Q200,245 310,205 L300,185 Q200,220 100,185 Z" fill="#7A3F22"/>
+            <path d="M100,190 Q200,225 300,190 L295,178 Q200,205 105,178 Z" fill="#9CC9C5" opacity="0.8"/>
+            <path d="M105,178 Q200,205 295,178 L285,168 Q200,190 115,168 Z" fill="#C9682B" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Tacos Escalope</h3>
+          <span class="menu-price">15 DT</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#D9C49A"/>
+            <path d="M80,160 Q200,120 320,160 L320,190 Q200,225 80,190 Z" fill="#E8B062"/>
+            <rect x="95" y="155" width="210" height="14" fill="#7E9070" rx="4"/>
+            <rect x="95" y="172" width="210" height="12" fill="#9CC9C5" rx="4" opacity="0.8"/>
+            <rect x="95" y="186" width="210" height="14" fill="#7A3F22" rx="4"/>
+            <path d="M80,195 Q200,235 320,195 L320,215 Q200,250 80,215 Z" fill="#F7D9A4"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Sandwich Escalope</h3>
+          <span class="menu-price">10 DT</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#B8714B"/>
+            <ellipse cx="200" cy="110" rx="95" ry="34" fill="#E8B062"/>
+            <rect x="110" y="130" width="180" height="18" fill="#9AA888" rx="6"/>
+            <rect x="105" y="150" width="190" height="22" fill="#7A3F22" rx="6"/>
+            <rect x="110" y="174" width="180" height="14" fill="#C9682B" rx="6" opacity="0.85"/>
+            <ellipse cx="200" cy="210" rx="100" ry="32" fill="#E8B062"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Burger Maison</h3>
+          <span class="menu-price">16 DT</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="drinks">
+    <div class="section-inner">
+      <div class="menu-head reveal">
+        <div class="eyebrow">Drinks</div>
+        <h2>Something <em>cold to drink</em></h2>
+        <p>Soft drinks, water and fresh juice, plus espresso coffee from the café terrace.</p>
+      </div>
+
+      <div class="menu-grid">
+
+        <div class="menu-card reveal">
+          <div class="menu-img">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2E3A28"/>
+              <rect x="160" y="60" width="80" height="180" rx="14" fill="#C9682B"/>
+              <rect x="170" y="80" width="60" height="30" rx="4" fill="#FBF4E7" opacity="0.85"/>
+              <circle cx="300" cy="80" r="40" fill="#9AA888" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <h3>Coca-Cola</h3>
+            <span class="menu-price">3 DT</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <div class="menu-img">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2E3A28"/>
+              <rect x="160" y="60" width="80" height="180" rx="14" fill="#E8B062"/>
+              <rect x="170" y="80" width="60" height="30" rx="4" fill="#FBF4E7" opacity="0.85"/>
+              <circle cx="100" cy="220" r="46" fill="#D9C49A" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <h3>Fanta</h3>
+            <span class="menu-price">3 DT</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <div class="menu-img">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2E3A28"/>
+              <path d="M170,60 L230,60 L240,90 L240,230 Q240,245 200,245 Q160,245 160,230 L160,90 Z" fill="#9CC9C5" opacity="0.85"/>
+              <rect x="175" y="100" width="50" height="26" rx="3" fill="#FBF4E7" opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <h3>Mineral Water</h3>
+            <span class="menu-price">1.5 DT</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <div class="menu-img">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2E3A28"/>
+              <path d="M150,80 L250,80 L240,230 Q240,245 200,245 Q160,245 160,230 Z" fill="#E8B062"/>
+              <ellipse cx="200" cy="80" rx="50" ry="10" fill="#F7D9A4"/>
+              <g fill="#FBF4E7" opacity="0.4">
+                <circle cx="190" cy="140" r="14"/>
+                <circle cx="215" cy="175" r="10"/>
+              </g>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <h3>Orange Juice</h3>
+            <span class="menu-price">5 DT</span>
+          </div>
+        </div>
+
+        <div class="menu-card reveal">
+          <div class="menu-img">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="300" fill="#2E3A28"/>
+              <path d="M150,120 L250,120 L245,210 Q245,225 200,225 Q155,225 155,210 Z" fill="#3E2A20"/>
+              <ellipse cx="200" cy="120" rx="50" ry="12" fill="#6E4A3C"/>
+              <path d="M250,140 Q280,140 280,165 Q280,190 250,190" fill="none" stroke="#D9C49A" stroke-width="8"/>
+            </svg>
+          </div>
+          <div class="menu-info">
+            <h3>Espresso Coffee</h3>
+            <span class="menu-price">2.5 DT</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,50 L240,80 L480,35 L760,85 L1000,45 L1240,75 L1440,50 L1440,0 L0,0 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- HOSTEL -->
+<section id="hostel">
+  <div class="section-inner intro">
+    <div class="reveal">
+      <div class="eyebrow">Stay</div>
+      <h2>Wake up <em>facing the mountain</em></h2>
+    </div>
+    <div class="intro-text reveal">
+      <p>A small number of guest rooms sit at the quiet edge of the property, away from the terraces — simple, comfortable, and built for travellers who want to wake up early and watch the sun rise over Jebel Zaghouan.</p>
+      <p>Each room opens onto its own patch of garden, with breakfast served on the café terrace and easy access to the pool, restaurant and grounds throughout your stay.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">6</div><div class="label">Guest rooms</div></div>
+        <div class="stat"><div class="num">24h</div><div class="label">Garden &amp; pool access</div></div>
+        <div class="stat"><div class="num">AM</div><div class="label">Breakfast included</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#E9C49C"/>
+            <rect x="0" y="180" width="400" height="120" fill="#B8714B"/>
+            <rect x="60" y="100" width="130" height="90" rx="4" fill="#FBF4E7" opacity="0.9"/>
+            <rect x="80" y="120" width="90" height="50" rx="3" fill="#9CC9C5" opacity="0.7"/>
+            <circle cx="320" cy="70" r="36" fill="#FBF4E7" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Garden Room</h3>
+          <span class="menu-price">Sleeps 2</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#D9C49A"/>
+            <rect x="0" y="190" width="400" height="110" fill="#7E9070"/>
+            <rect x="220" y="90" width="140" height="100" rx="4" fill="#FBF4E7" opacity="0.9"/>
+            <rect x="240" y="110" width="100" height="55" rx="3" fill="#E8B062" opacity="0.7"/>
+            <circle cx="80" cy="70" r="36" fill="#F7D9A4"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Mountain View Room</h3>
+          <span class="menu-price">Sleeps 2</span>
+        </div>
+      </div>
+
+      <div class="menu-card reveal">
+        <div class="menu-img">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#9AA888"/>
+            <rect x="0" y="170" width="400" height="130" fill="#2E3A28"/>
+            <rect x="100" y="80" width="200" height="110" rx="4" fill="#FBF4E7" opacity="0.92"/>
+            <rect x="130" y="100" width="60" height="40" rx="3" fill="#C9682B" opacity="0.7"/>
+            <rect x="210" y="100" width="60" height="40" rx="3" fill="#9CC9C5" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="menu-info">
+          <h3>Family Suite</h3>
+          <span class="menu-price">Sleeps 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visite" class="visit">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="eyebrow">Visit</div>
+      <h2>Find us <em>in the hills of Zaghouan</em></h2>
+      <div class="visit-details">
+        <div>
+          <div class="label">Address</div>
+          <div class="val">Route de Zaghouan, Zaghouan Governorate, Tunisia</div>
+        </div>
+        <div>
+          <div class="label">Hours</div>
+          <div class="val">Café &amp; Gardens — 8:00 to 23:00, daily<br>Restaurant — Lunch &amp; Dinner service, daily</div>
+        </div>
+        <div>
+          <div class="label">Reservations &amp; Events</div>
+          <div class="val">By phone or message — recommended for weekends, pool access and private events.</div>
+        </div>
+        <div>
+          <div class="label">Delivery</div>
+          <div class="val">+216 XX XXX XXX</div>
+        </div>
+      </div>
+      <a href="#" class="cta-btn">Reserve a table →</a>
+    </div>
+    <div class="map-box reveal">
+      <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="400" fill="#DCE7E2"/>
+        <path d="M0,400 L0,240 L100,280 L200,180 L300,260 L400,210 L400,400 Z" fill="#9AA888"/>
+        <path d="M0,400 L0,320 L120,350 L240,300 L400,340 L400,400 Z" fill="#5F7C68"/>
+        <circle cx="200" cy="220" r="6" fill="#C9682B"/>
+        <circle cx="200" cy="220" r="14" fill="none" stroke="#C9682B" stroke-width="2" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <div class="brand">La Vallée <span>des Anges</span></div>
+      <p>A restaurant, café and event venue overlooking Jebel Zaghouan — open daily for dining, swimming and celebrations.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <div class="label">Explore</div>
+        <a href="#monde">The Valley</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#evenements">Events</a>
+        <a href="#menu">Menu</a>
+        <a href="#hostel">Hostel</a>
+        <a href="#visite">Visit</a>
+      </div>
+      <div class="foot-col">
+        <div class="label">Contact</div>
+        <p>Zaghouan, Tunisia</p>
+        <p>+216 00 000 000</p>
+        <p>hello@lavalleedesanges.tn</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 La Vallée des Anges</span>
+    <span>Zaghouan, Tunisia</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  reveals.forEach(r => io.observe(r));
+
+  /* Menu image slider */
+  (function(){
+    const slider = document.getElementById('menuSlider');
+    const slides = slider.querySelectorAll('.slide');
+    const dotsWrap = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('sliderPrev');
+    const nextBtn = document.getElementById('sliderNext');
+    let current = 0;
+    let timer;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      if(i === 0) dot.classList.add('active');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('button');
+
+    function goTo(index){
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function next(){ goTo(current + 1); }
+    function prev(){ goTo(current - 1); }
+
+    function startAuto(){
+      timer = setInterval(next, 3000);
+    }
+    function stopAuto(){
+      clearInterval(timer);
+    }
+
+    nextBtn.addEventListener('click', () => { next(); stopAuto(); startAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); stopAuto(); startAuto(); });
+    slider.addEventListener('mouseenter', stopAuto);
+    slider.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+  })();
+</script>
+
+</body>
+</html>
